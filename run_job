@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# run_job <program> <nodes> <cores_per_node>
+
+module add gcc openmpi/1.3-gcc
+
+mpirun -np $2 -bynode -display-map -machinefile $SP_HOSTFILE $1 ./64seqs.txt $3
