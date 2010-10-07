@@ -268,8 +268,13 @@ int main (int argc, const char * argv[]) {
         // initialize score and pointer matrices
         int * score_matrix = (int *) malloc((seq1len+1) * (seq2len+1) * sizeof(int));
         int * ptr_matrix   = (int *) malloc((seq1len+1) * (seq2len+1) * sizeof(int));
+        double fill1_t = gettime();
         fill_matrix(score_matrix, seq1len, seq2len, 0);
-        fill_matrix(  ptr_matrix, seq1len, seq2len, 0);	
+        fill1_t = gettime() - fill1_t;
+
+        double fill2_t = gettime();
+        fill_matrix(  ptr_matrix, seq1len, seq2len, 0); 
+        fill2_t = gettime() - fill2_t;
         //print_matrix(ptr_matrix, seq1len, seq2len);
         //print_matrix(score_matrix, seq1len, seq2len);
 
@@ -289,7 +294,8 @@ int main (int argc, const char * argv[]) {
 
         // print num of cells, time in secs, and flops
         align_t = gettime() - align_t;
-        fprintf(stderr, "%d\t%f\t%E\n", seq1len*seq2len, align_t, pow(seq1len*seq2len, 3)/align_t);
+        fprintf(stderr, "%d\t%f\t%E f(%f, %f)\n", seq1len*seq2len,
+            align_t, (seq1len*seq2len)/align_t), fill1_t, fill2_t;
     }
 
     // get and print elapsed time
