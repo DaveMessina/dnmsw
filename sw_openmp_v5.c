@@ -252,7 +252,7 @@ void do_alignment(char * line1, char * line2) {
 
     // print num of cells, time in secs, and flops
     align_t = gettime() - align_t;
-    printf("%d\t%f\t%E\n", seq1len*seq2len, align_t, 2*pow(seq1len*seq2len, 3)/align_t);
+    printf("%d\t%f\t%E\n", seq1len*seq2len, align_t, pow(seq1len*seq2len, 3)/align_t);
 }
 
 int main (int argc, const char * argv[]) {

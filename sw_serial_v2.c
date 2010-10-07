@@ -294,7 +294,7 @@ int main (int argc, const char * argv[]) {
 
         // print num of cells, time in secs, and flops
         align_t = gettime() - align_t;
-        fprintf(stderr, "%d\t%f\t%E\n", seq1len*seq2len, align_t, 2*pow(seq1len*seq2len, 3)/align_t);
+        fprintf(stderr, "%d\t%f\t%E\n", seq1len*seq2len, align_t, pow(seq1len*seq2len, 3)/align_t);
     }
 
     // get and print elapsed time

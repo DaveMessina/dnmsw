@@ -301,7 +301,7 @@ int main (int argc, const char * argv[]) {
 	  printf("max score: %d\n", max_score);
 		
 	  // print num of cells, time in secs, and flops
-	  fprintf(stderr,"%d\t%f\t%E\n", seq1len*seq2len, t, 2*pow(seq1len*seq2len, 3)/t);
+	  fprintf(stderr,"%d\t%f\t%E\n", seq1len*seq2len, t, pow(seq1len*seq2len, 3)/t);
 		
 	  free(score_matrix);
 	  free(ptr_matrix);
